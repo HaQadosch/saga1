@@ -1,11 +1,15 @@
 import React from 'react'
+import { AppDispatch } from './Store/store'
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, increment, decrement } from './Store/rootReducer';
 
 interface ICounter {
 
 }
 
 export const Counter: React.FC<ICounter> = () => {
-  const [count, setCount] = React.useState<number>(0)
+  const dispatch: AppDispatch = useDispatch()
+  const { count } = useSelector(({ counter }: RootState) => counter)
 
   return (
     <>
@@ -16,9 +20,9 @@ export const Counter: React.FC<ICounter> = () => {
   )
 
   function handleOnClick_Add (_: React.MouseEvent<HTMLButtonElement>): void {
-    setCount(count => count + 1)
+    dispatch(increment())
   }
   function handleOnClick_Min (_: React.MouseEvent<HTMLButtonElement>): void {
-    setCount(count => count - 1)
+    dispatch(decrement())
   }
 }

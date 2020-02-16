@@ -4,6 +4,9 @@ import './index.css'
 import { App } from './App'
 import * as serviceWorker from './serviceWorker'
 
+import { Provider } from "react-redux";
+import { store } from "./Store/store";
+
 class ErrorBoundary extends React.Component<{}, { hasError: boolean }, {}> {
   constructor (props: any) {
     super(props);
@@ -33,7 +36,9 @@ class ErrorBoundary extends React.Component<{}, { hasError: boolean }, {}> {
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <App />
+      <Provider store={ store }>
+        <App />
+      </Provider>
     </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
