@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppDispatch } from './Store/store'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 import { RootState, increment, decrement } from './Store/rootReducer';
 
 interface ICounter {
