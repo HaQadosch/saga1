@@ -9,12 +9,20 @@ const initialState = {
   count: 0
 }
 
+/**
+ * {type: 'counter/increment'}
+ * Increments the counter by 1.
+ */
 const incrementReducer = {
   increment: produce((draft: Draft<ICounterState>) => {
     draft.count++
   })
 }
 
+/**
+ * {type: 'counter/decrement'}
+ * Decrements the counter by 1.
+ */
 const decrementReducer = {
   decrement: produce((draft: Draft<ICounterState>) => {
     draft.count--
